@@ -167,7 +167,7 @@
 ;we use this specialied macro instead of 'if'. Hereby, list/function call resolving is skipped for
 ;syntactic constructs as they represent neither a function call nor a list.
 (define-syntax metta-macro-if
-  (syntax-rules (collapse superpose hyperpose Let Let* Match Case If == sequential quote do trace! and or)
+  (syntax-rules (collapse superpose hyperpose Let Let* Match Case If sequential quote do trace! and or)
     ((_ collapse then else) then)
     ((_ superpose then else) then)
     ((_ hyperpose then else) then)
@@ -176,7 +176,6 @@
     ((_ Match then else) then)
     ((_ Case then else) then)
     ((_ If then else) then)
-    ((_ == then else) then)
     ((_ sequential then else) then)
     ((_ quote then else) then)
     ((_ do then else) then)
@@ -221,9 +220,6 @@
 
 ;; EQUALITY
 ;""""""""""
-
-;allow using '==' in the code
-(define == equal?)
 
 ;; TYPE SYSTEM
 ;"""""""""""""
