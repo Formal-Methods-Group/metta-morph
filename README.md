@@ -27,14 +27,14 @@ In folder "extend":
 compileme.metta:
 ```
 (= (facF $n)
-   (If (== $n 0)
+   (if (== $n 0)
        1
        (* $n (facF (- $n 1)))))
 ```
 
 yourfile.metta:
 ```
-!(extend-py! mettamorph)
+!(import! &self mettamorph)
 !(compile! compileme.metta)
 !(facF 42)
 ```
@@ -46,14 +46,14 @@ Another option is to compile code in-line:
 
 yourfile.metta:
 ```
-!(extend-py! mettamorph)
+!(imort! &self mettamorph)
 !(compile! "
 (= (facF $n)
-   (If (== $n 0)
+   (if (== $n 0)
        1
        (* $n (facF (- $n 1)))))
 ")
-!(facF 42)
+!(facF 10)
 ```
 
 In both cases simply run with
