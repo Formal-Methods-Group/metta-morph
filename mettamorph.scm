@@ -363,11 +363,11 @@
 
 ;Memoize the results of function f
 (define (memoized f)
-  (lambda (n)
-    (let ((key (cons f n)))
+  (lambda args
+    (let ((key (cons f args)))
       (if (hash-table-exists? cache key)
           (hash-table-ref cache key)
-          (let ((result (f n)))
+          (let ((result (apply f args)))
             (hash-table-set! cache key result)
             result)))))
 
